@@ -32,6 +32,8 @@ music" or "pause the music" to try the tools. Press Stop to end.
 
 ## Documentation
 
+- [Register a Switchboard app](https://console.switchboard.audio/register)
 - [Switchboard SDK](https://docs.switchboard.audio/)
 - [iOS integration](https://docs.switchboard.audio/integration/ios)
 - [OpenAI Live credentials and billing](https://docs.switchboard.audio/extensions/openai/openai-live-node#credentials-and-billing)
+- [OpenAI Live Toolkit for React Native](https://github.com/switchboard-sdk/openai-live-toolkit)
