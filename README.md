@@ -25,7 +25,7 @@ OpenAILive holds a voice conversation with OpenAI GPT-Live through the
 [`OpenAI.Live` node](https://docs.switchboard.audio/extensions/openai/openai-live-node).
 
 It needs your own Switchboard app: [register one](https://console.switchboard.audio/register), then
-put its ID and secret in `demos/OpenAILive/Sources/App.swift`.
+replace `"demo"` with its `appID` and `appSecret` in `demos/OpenAILive/Sources/App.swift`.
 
 Press Start and allow the microphone. Then talk; the transcript shows as you go. Say "play some
 music" or "pause the music" to try the tools. Press Stop to end.

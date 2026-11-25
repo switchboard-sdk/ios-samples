@@ -37,10 +37,6 @@ class OpenAILiveExample {
 
     func start() {
         if isRunning { return }
-        if appID.isEmpty || appSecret.isEmpty {
-            status("Set your Switchboard app's ID and secret in App.swift. Register an app at console.switchboard.audio/register.")
-            return
-        }
         guard let path = Bundle.main.path(forResource: "OpenAILiveExample", ofType: "json"),
               let json = try? String(contentsOfFile: path, encoding: .utf8)
         else {

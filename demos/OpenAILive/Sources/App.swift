@@ -3,10 +3,6 @@ import SwitchboardOpenAI
 import SwitchboardSDK
 import SwitchboardSileroVAD
 
-// Your Switchboard app's ID and secret. Register an app at https://console.switchboard.audio/register.
-let appID = ""
-let appSecret = ""
-
 @main
 struct OpenAILiveApp: App {
 
@@ -17,10 +13,11 @@ struct OpenAILiveApp: App {
         // SileroVAD Extension, for idle mode
         SBSileroVADExtension.loadExtension()
 
-        // Init SDK
+        // Init SDK. OpenAI Live needs your own Switchboard app: register one at
+        // https://console.switchboard.audio/register and put its appID and appSecret here.
         let initConfig: [String: Any] = [
-            "appID": appID,
-            "appSecret": appSecret,
+            "appID": "demo",
+            "appSecret": "demo",
             "extensions": [
                 "OpenAI": [:],
                 "Silero": [:],
