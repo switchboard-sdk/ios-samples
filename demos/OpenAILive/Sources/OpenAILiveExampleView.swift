@@ -23,7 +23,7 @@ struct OpenAILiveExampleView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .onChange(of: model.updates) {
+                .onChange(of: model.lines.last) {
                     if let last = model.lines.last {
                         proxy.scrollTo(last.id, anchor: .bottom)
                     }
@@ -54,7 +54,7 @@ struct OpenAILiveExampleView: View {
 }
 
 /// A transcript line: what "You" or "Assistant" said, or a status line when `speaker` is nil.
-struct TranscriptLine: Identifiable {
+struct TranscriptLine: Identifiable, Equatable {
     let id: Int
     let speaker: String?
     var text: String
@@ -67,8 +67,6 @@ extension OpenAILiveExampleView {
 
         var isRunning = false
         var lines: [TranscriptLine] = []
-        // Changes on every transcript update, to scroll to the end.
-        var updates = 0
 
         init() {
             example.delegate = self
@@ -94,12 +92,10 @@ extension OpenAILiveExampleView {
             } else {
                 lines.append(TranscriptLine(id: lines.count, speaker: speaker, text: delta))
             }
-            updates += 1
         }
 
         func status(_ text: String) {
             lines.append(TranscriptLine(id: lines.count, speaker: nil, text: text))
-            updates += 1
         }
     }
 }

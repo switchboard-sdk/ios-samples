@@ -4,8 +4,8 @@ A simple Xcode-based speech-to-text, text-to-speech and voice assistant demo app
 
 ## Setup
 
-No manual setup step is required. The Switchboard SDK and its extensions are declared as a Swift
-Package Manager dependency
+No manual setup step is required. The Switchboard SDK and its extensions are declared as a
+Swift Package Manager dependency
 ([switchboard-sdk-ios](https://github.com/switchboard-sdk/switchboard-sdk-ios), pinned to
 **3.3.0**). Xcode resolves and downloads the packages automatically the first time you build.
 

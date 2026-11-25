@@ -29,6 +29,5 @@ targets:
         INFOPLIST_FILE: Info.plist
         INFOPLIST_KEY_NSMicrophoneUsageDescription: "The app uses the microphone so you can talk to the voice assistant."
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
-        TARGETED_DEVICE_FAMILY: "1,2"
         # SwitchboardOpenAI's simulator slice is arm64 only.
         "EXCLUDED_ARCHS[sdk=iphonesimulator*]": x86_64

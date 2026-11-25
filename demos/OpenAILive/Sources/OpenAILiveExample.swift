@@ -18,7 +18,7 @@ protocol OpenAILiveExampleDelegate: AnyObject {
 ///
 /// Each `start()` creates the engine from OpenAILiveExample.json and starts a new conversation;
 /// `stop()` ends it. The assistant's tools (play and pause the music) are answered here,
-/// in `handleToolCall`.
+/// in `runTool`.
 class OpenAILiveExample {
     /// Called on the main thread.
     weak var delegate: OpenAILiveExampleDelegate?
@@ -34,41 +34,37 @@ class OpenAILiveExample {
 
     private var engineID: String?
     private var listenerIDs: [NSNumber] = []
-    private var connectedBefore = false
 
-    @discardableResult
-    func start() -> Bool {
-        if isRunning { return true }
+    func start() {
+        if isRunning { return }
         if appID.isEmpty || appSecret.isEmpty {
             status("Set your Switchboard app's ID and secret in App.swift. Register an app at console.switchboard.audio/register.")
-            return false
+            return
         }
         guard let path = Bundle.main.path(forResource: "OpenAILiveExample", ofType: "json"),
               let json = try? String(contentsOfFile: path, encoding: .utf8)
         else {
             status("Couldn't read OpenAILiveExample.json")
-            return false
+            return
         }
 
         let createResult = Switchboard.createEngine(withJSON: json)
         guard createResult.success, let value = createResult.value else {
-            status("Failed to create the engine: \(message(createResult.error))")
-            return false
+            status("Failed to create the engine: \(errorText(createResult.error))")
+            return
         }
         let id = value as String
         engineID = id
-        connectedBefore = false
         addEventListeners()
 
         let startResult = Switchboard.callAction(withObject: id, actionName: "start", params: nil)
         if !startResult.success {
-            status("Failed to start the engine: \(message(startResult.error))")
+            status("Failed to start the engine: \(errorText(startResult.error))")
             stop()
-            return false
+            return
         }
         isRunning = true
         status("Connecting…")
-        return true
     }
 
     func stop() {
@@ -108,30 +104,30 @@ class OpenAILiveExample {
                   let callID = data["callId"] as? String,
                   let name = data["name"] as? String
             else { return }
-            let output = handleToolCall(name)
-            status(output.ok ? "[\(name)]" : "[\(name) failed: \(output.json)]")
-
-            let answer = output.ok
-                ? Switchboard.callAction(
-                    withObject: liveNode,
-                    actionName: "submitToolResult",
-                    params: ["callId": callID, "outputJson": output.json]
-                )
-                : Switchboard.callAction(
+            let answer: SBResult<AnyObject>
+            if let error = runTool(name) {
+                status("[\(name) failed: \(error)]")
+                answer = Switchboard.callAction(
                     withObject: liveNode,
                     actionName: "submitToolError",
-                    params: ["callId": callID, "errorJson": output.json]
+                    params: ["callId": callID, "errorJson": jsonString(["error": error])]
                 )
+            } else {
+                status("[\(name)]")
+                answer = Switchboard.callAction(
+                    withObject: liveNode,
+                    actionName: "submitToolResult",
+                    params: ["callId": callID, "outputJson": #"{"ok":true}"#]
+                )
+            }
             if !answer.success {
-                status("[Failed to answer \(name): \(message(answer.error))]")
+                status("[Failed to answer \(name): \(errorText(answer.error))]")
             }
         }
 
         // Session state
-        listen("sessionStarted") { [weak self] _ in
-            guard let self else { return }
-            status(connectedBefore ? "Connected." : "Connected. Start talking.")
-            connectedBefore = true
+        listen("sessionStarted") { [weak self] data in
+            self?.status(data["continued"] as? Bool == true ? "Connected." : "Connected. Start talking.")
         }
         listen("sessionPaused") { [weak self] _ in
             self?.status("Standby: paused after 15 s of quiet. Speak to resume.")
@@ -145,8 +141,12 @@ class OpenAILiveExample {
         listen("sessionWoken") { [weak self] _ in
             self?.status("Idle: reopened.")
         }
-        listen("sessionDisconnected") { [weak self] _ in
-            self?.status("Connection lost. Reconnecting.")
+        listen("sessionDisconnected") { [weak self] data in
+            self?.status(
+                data["reconnecting"] as? Bool == true
+                    ? "Connection lost. Reconnecting."
+                    : "Session refused. Press Stop, then Start to try again."
+            )
         }
         listen("error") { [weak self] data in
             self?.status("Error: \(data["type"] ?? "") \(data["code"] ?? ""): \(data["message"] ?? "")")
@@ -155,41 +155,31 @@ class OpenAILiveExample {
 
     // MARK: - Tools
 
-    private struct ToolOutput {
-        let ok: Bool
-        let json: String
-    }
-
-    private func handleToolCall(_ name: String) -> ToolOutput {
+    /// Runs a tool: nil when it worked, otherwise the error.
+    private func runTool(_ name: String) -> String? {
+        let result: SBResult<AnyObject>
         switch name {
         case "play_music":
-            return playMusic()
+            result = playMusic()
         case "pause_music":
-            return musicResult(callMusicPlayer("pause"), playing: false)
+            result = callMusicPlayer("pause")
         default:
-            return toolError("Unknown tool: \(name)")
+            return "Unknown tool: \(name)"
         }
+        return result.success ? nil : errorText(result.error)
     }
 
-    // Resumes the track if it's open (paused), otherwise loads it, which starts it since the player has autoPlay.
-    private func playMusic() -> ToolOutput {
+    // Resumes the track if it's open (paused), otherwise loads it, which starts it: the player plays what it loads.
+    private func playMusic() -> SBResult<AnyObject> {
         let state = Switchboard.getValueForKey("state", object: musicPlayerNode).value as? String
         if let state, openMusicStates.contains(state) {
-            return musicResult(callMusicPlayer("play"), playing: true)
+            return callMusicPlayer("play")
         }
-        return musicResult(callMusicPlayer("load", params: ["url": musicURL]), playing: true)
+        return callMusicPlayer("load", params: ["url": musicURL])
     }
 
     private func callMusicPlayer(_ action: String, params: [String: Any]? = nil) -> SBResult<AnyObject> {
         Switchboard.callAction(withObject: musicPlayerNode, actionName: action, params: params)
-    }
-
-    private func musicResult(_ result: SBResult<AnyObject>, playing: Bool) -> ToolOutput {
-        result.success ? ToolOutput(ok: true, json: jsonString(["playing": playing])) : toolError(message(result.error))
-    }
-
-    private func toolError(_ message: String) -> ToolOutput {
-        ToolOutput(ok: false, json: jsonString(["error": message]))
     }
 
     private func jsonString(_ object: [String: Any]) -> String {
@@ -199,7 +189,7 @@ class OpenAILiveExample {
         return string
     }
 
-    private func message(_ error: Error?) -> String {
+    private func errorText(_ error: Error?) -> String {
         error?.localizedDescription ?? "Unknown error"
     }
 
