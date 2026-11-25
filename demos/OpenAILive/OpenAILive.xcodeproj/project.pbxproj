@@ -1,0 +1,376 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9BD27A67D5E10801A5074F2C /* SwitchboardOpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = C4846050AA49172A10F45978 /* SwitchboardOpenAI */; };
+		9C6E7B47E1332632E11725C8 /* SwitchboardOnnx in Frameworks */ = {isa = PBXBuildFile; productRef = 292AB9A8A5E62F07A83D58B5 /* SwitchboardOnnx */; };
+		9E07AE60D28BDF341DB87766 /* SwitchboardSileroVAD in Frameworks */ = {isa = PBXBuildFile; productRef = 8AF245D5F5BFB651D1E3FDD1 /* SwitchboardSileroVAD */; };
+		B2BCF6C010CAA720A0E351FC /* OpenAILiveExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = F638654E04D4FA8E2171A379 /* OpenAILiveExample.swift */; };
+		C6F5197747D634F0C9F46DDF /* SwitchboardSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 0E67810C45E9116B79C9C6F6 /* SwitchboardSDK */; };
+		C95BF43737A0BEDA19A0A512 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256971D9BBD5314E0B850EA6 /* App.swift */; };
+		D7080E1068393F7BDB186427 /* OpenAILiveExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BEA5C4C6B57509A50F21A /* OpenAILiveExampleView.swift */; };
+		F6825E8045F8D0581D29F905 /* OpenAILiveExample.json in Resources */ = {isa = PBXBuildFile; fileRef = BF17A79AB0AF922392620A17 /* OpenAILiveExample.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		256971D9BBD5314E0B850EA6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		B58BEA5C4C6B57509A50F21A /* OpenAILiveExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAILiveExampleView.swift; sourceTree = "<group>"; };
+		BF17A79AB0AF922392620A17 /* OpenAILiveExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenAILiveExample.json; sourceTree = "<group>"; };
+		CED7BAAF6489FAB041FF0C45 /* OpenAILive.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OpenAILive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F638654E04D4FA8E2171A379 /* OpenAILiveExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAILiveExample.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A3D54D89576119B8AAAD55E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6F5197747D634F0C9F46DDF /* SwitchboardSDK in Frameworks */,
+				9C6E7B47E1332632E11725C8 /* SwitchboardOnnx in Frameworks */,
+				9E07AE60D28BDF341DB87766 /* SwitchboardSileroVAD in Frameworks */,
+				9BD27A67D5E10801A5074F2C /* SwitchboardOpenAI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B74169F481653AA71B04B0D = {
+			isa = PBXGroup;
+			children = (
+				52E6F885E551F90EDB89279B /* Sources */,
+				6282C93668AD53EF9062F42B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52E6F885E551F90EDB89279B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				256971D9BBD5314E0B850EA6 /* App.swift */,
+				BF17A79AB0AF922392620A17 /* OpenAILiveExample.json */,
+				F638654E04D4FA8E2171A379 /* OpenAILiveExample.swift */,
+				B58BEA5C4C6B57509A50F21A /* OpenAILiveExampleView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		6282C93668AD53EF9062F42B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CED7BAAF6489FAB041FF0C45 /* OpenAILive.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB43F12F7F40F9BA171C9A93 /* OpenAILive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EFF1EA9B33F8FA75A05E4D3 /* Build configuration list for PBXNativeTarget "OpenAILive" */;
+			buildPhases = (
+				91477E5DC358077382057191 /* Sources */,
+				1CCE8A4A9F83E06ADB1BE82E /* Resources */,
+				9A3D54D89576119B8AAAD55E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenAILive;
+			packageProductDependencies = (
+				0E67810C45E9116B79C9C6F6 /* SwitchboardSDK */,
+				292AB9A8A5E62F07A83D58B5 /* SwitchboardOnnx */,
+				8AF245D5F5BFB651D1E3FDD1 /* SwitchboardSileroVAD */,
+				C4846050AA49172A10F45978 /* SwitchboardOpenAI */,
+			);
+			productName = OpenAILive;
+			productReference = CED7BAAF6489FAB041FF0C45 /* OpenAILive.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		86139F3BBB46444416B46213 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					BB43F12F7F40F9BA171C9A93 = {
+						DevelopmentTeam = NQ2VLM7NM7;
+					};
+				};
+			};
+			buildConfigurationList = AA9C1E67CEF17F9ECAFC403C /* Build configuration list for PBXProject "OpenAILive" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 4B74169F481653AA71B04B0D;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6E1F7D80DF56683A482BB2BD /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */,
+			);
+			productRefGroup = 6282C93668AD53EF9062F42B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB43F12F7F40F9BA171C9A93 /* OpenAILive */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CCE8A4A9F83E06ADB1BE82E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6825E8045F8D0581D29F905 /* OpenAILiveExample.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		91477E5DC358077382057191 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C95BF43737A0BEDA19A0A512 /* App.swift in Sources */,
+				B2BCF6C010CAA720A0E351FC /* OpenAILiveExample.swift in Sources */,
+				D7080E1068393F7BDB186427 /* OpenAILiveExampleView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3611B6E360B2A71F988DD2DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		362E4356A5C781CBB7D986AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3B1DC28AF996690CB8B79247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses the microphone so you can talk to the voice assistant.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.synervoz.openailivedemo.OpenAILive;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		529BAFD58580CCEF3269A51E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses the microphone so you can talk to the voice assistant.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.synervoz.openailivedemo.OpenAILive;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6EFF1EA9B33F8FA75A05E4D3 /* Build configuration list for PBXNativeTarget "OpenAILive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B1DC28AF996690CB8B79247 /* Debug */,
+				529BAFD58580CCEF3269A51E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AA9C1E67CEF17F9ECAFC403C /* Build configuration list for PBXProject "OpenAILive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				362E4356A5C781CBB7D986AB /* Debug */,
+				3611B6E360B2A71F988DD2DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6E1F7D80DF56683A482BB2BD /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/switchboard-sdk/switchboard-sdk-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 3.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0E67810C45E9116B79C9C6F6 /* SwitchboardSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E1F7D80DF56683A482BB2BD /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */;
+			productName = SwitchboardSDK;
+		};
+		292AB9A8A5E62F07A83D58B5 /* SwitchboardOnnx */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E1F7D80DF56683A482BB2BD /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */;
+			productName = SwitchboardOnnx;
+		};
+		8AF245D5F5BFB651D1E3FDD1 /* SwitchboardSileroVAD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E1F7D80DF56683A482BB2BD /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */;
+			productName = SwitchboardSileroVAD;
+		};
+		C4846050AA49172A10F45978 /* SwitchboardOpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E1F7D80DF56683A482BB2BD /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */;
+			productName = SwitchboardOpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 86139F3BBB46444416B46213 /* Project object */;
+}

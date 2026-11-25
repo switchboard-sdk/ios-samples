@@ -1,0 +1,34 @@
+name: OpenAILive
+options:
+  bundleIdPrefix: com.synervoz.openailivedemo
+  projectFormat: xcode14_0
+packages:
+  switchboard-sdk-ios:
+    url: https://github.com/switchboard-sdk/switchboard-sdk-ios
+    exactVersion: 3.3.0
+targets:
+  OpenAILive:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: Sources
+    dependencies:
+      - package: switchboard-sdk-ios
+        product: SwitchboardSDK
+      - package: switchboard-sdk-ios
+        product: SwitchboardOnnx
+      - package: switchboard-sdk-ios
+        product: SwitchboardSileroVAD
+      - package: switchboard-sdk-ios
+        product: SwitchboardOpenAI
+    settings:
+      base:
+        DEVELOPMENT_TEAM: "NQ2VLM7NM7"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: Info.plist
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: "The app uses the microphone so you can talk to the voice assistant."
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        TARGETED_DEVICE_FAMILY: "1,2"
+        # SwitchboardOpenAI's simulator slice is arm64 only.
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": x86_64
