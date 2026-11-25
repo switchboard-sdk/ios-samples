@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/switchboard-sdk/switchboard-sdk-ios",
       "state" : {
-        "revision" : "10f7f6310b52cd353fd9a37fdadfd5dd4ce811b8",
-        "version" : "3.2.6"
+        "revision" : "7356d08f5b60ed480cc49cc6789dd3c0b97c8345",
+        "version" : "3.3.0"
       }
     }
   ],
