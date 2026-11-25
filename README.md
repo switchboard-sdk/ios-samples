@@ -19,10 +19,9 @@ Open `SwitchboardiOSDemo.xcworkspace` in Xcode, wait for package resolution to f
 one of the demo schemes (WhisperSTT, SherpaTTS, WhisperSTTtoSherpaTTS or OpenAILive). To run on
 a device, select your team under Signing & Capabilities.
 
-## OpenAILive
+## OpenAI Live
 
-OpenAILive holds a voice conversation with OpenAI GPT-Live through the
-[`OpenAI.Live` node](https://docs.switchboard.audio/extensions/openai/openai-live-node).
+The [`OpenAI.Live` node](https://docs.switchboard.audio/extensions/openai/openai-live-node) holds a voice conversation with OpenAI GPT-Live.
 
 It needs your own Switchboard app: [register one](https://console.switchboard.audio/register), then
 replace `"demo"` with its `appID` and `appSecret` in `demos/OpenAILive/Sources/App.swift`.
