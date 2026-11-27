@@ -1,6 +1,6 @@
 # SwitchboardiOSDemo
 
-A simple Xcode-based speech-to-text and text-to-speech demo application for iOS.
+A simple Xcode-based speech-to-text, text-to-speech and voice assistant demo application for iOS.
 
 ## Setup
 
@@ -16,4 +16,23 @@ Swift Package Manager dependency
 ## Build & Run
 
 Open `SwitchboardiOSDemo.xcworkspace` in Xcode, wait for package resolution to finish, then run
-one of the demo schemes (WhisperSTT, SherpaTTS, or WhisperSTTtoSherpaTTS).
+one of the demo schemes (WhisperSTT, SherpaTTS, WhisperSTTtoSherpaTTS or OpenAILive). To run on
+a device, select your team under Signing & Capabilities.
+
+## OpenAI Live
+
+The [`OpenAI.Live` node](https://docs.switchboard.audio/extensions/openai/openai-live-node) holds a voice conversation with OpenAI GPT-Live.
+
+It needs your own Switchboard app: [register one](https://console.switchboard.audio/register), then
+replace `"demo"` with its `appID` and `appSecret` in `demos/OpenAILive/Sources/App.swift`.
+
+Press Start and allow the microphone. Then talk; the transcript shows as you go. Say "play some
+music" or "pause the music" to try the tools. Press Stop to end.
+
+## Documentation
+
+- [Register a Switchboard app](https://console.switchboard.audio/register)
+- [Switchboard SDK](https://docs.switchboard.audio/)
+- [iOS integration](https://docs.switchboard.audio/integration/ios)
+- [OpenAI Live credentials and billing](https://docs.switchboard.audio/extensions/openai/openai-live-node#credentials-and-billing)
+- [OpenAI Live Toolkit for React Native](https://github.com/switchboard-sdk/openai-live-toolkit)

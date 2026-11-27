@@ -10,4 +10,7 @@
    <FileRef
       location = "group:demos/WhisperSTTtoSherpaTTS/WhisperSTTtoSherpaTTS.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:demos/OpenAILive/OpenAILive.xcodeproj">
+   </FileRef>
 </Workspace>
